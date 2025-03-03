@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sports Student Bio</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f0f8ff;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            margin-top: 50px;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            width: 50%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin-bottom: 20px;
+        }
+        h2 {
+            color: #333;
+        }
+        .bio-info {
+            font-size: 18px;
+            color: #666;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container" id="bio-container">
+        <h2>Sports Student Bio</h2>
+        <img id="profile-pic" src="" alt="Profile Picture">
+        <div class="bio-info" id="bio-info">
+            <p id="user-name">Name: </p>
+            <p id="user-sport">Sport: </p>
+            <p id="user-achievements">Achievements: </p>
+        </div>
+        <button onclick="updateBio()">Update Bio</button>
+    </div>
+
+    <script>
+        
+        function getUserInfo() {
+            let name = prompt("What's your name?");
+            while (!name) { 
+                alert("Please enter a valid name.");
+                name = prompt("What's your name?");
+            }
+            
+            let sport = prompt("What sport do you participate in?");
+            while (!sport) { 
+                alert("Please enter a valid sport.");
+                sport = prompt("What sport do you participate in?");
+            }
+
+            let achievements = prompt("Please list any major achievements or awards in your sport:");
+            while (!achievements) { 
+                alert("Please enter your achievements.");
+                achievements = prompt("Please list any major achievements or awards in your sport:");
+            }
+
+            let profilePicURL = prompt("Enter the URL of your profile picture:");
+            while (!profilePicURL) {
+                alert("Please enter a valid URL for your profile picture.");
+                profilePicURL = prompt("Enter the URL of your profile picture:");
+            }
+
+            
+            alert(`Name: ${name}\nSport: ${sport}\nAchievements: ${achievements}\nProfile Pic URL: ${profilePicURL}`);
+
+            
+            console.log(`Name: ${name}`);
+            console.log(`Sport: ${sport}`);
+            console.log(`Achievements: ${achievements}`);
+            console.log(`Profile Pic URL: ${profilePicURL}`);
+
+            
+            document.getElementById('user-name').innerText = `Name: ${name}`;
+            document.getElementById('user-sport').innerText = `Sport: ${sport}`;
+            document.getElementById('user-achievements').innerText = `Achievements: ${achievements}`;
+            document.getElementById('profile-pic').src = profilePicURL;
+        }
+
+        
+        function updateBio() {
+            getUserInfo();
+        }
+
+        
+        getUserInfo();
+    </script>
+
+</body>
+</html>
